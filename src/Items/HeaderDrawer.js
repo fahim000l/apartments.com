@@ -92,6 +92,35 @@ export default function HeaderDrawer({ menuItems }) {
             )}
           </ListItem>
         ))}
+        <ListItem disablePadding>
+          <Accordion sx={{ width: "100%" }}>
+            <AccordionSummary
+              onClick={() => handleExpended("Language")}
+              expandIcon={
+                expended === "Language" ? <RemoveIcon /> : <AddIcon />
+              }
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+            >
+              <Typography>Language</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <ListItemButton>
+                <Button
+                  fullWidth
+                  sx={{ mr: 2, fontSize: "10px" }}
+                  variant="contained"
+                  color="success"
+                >
+                  English
+                </Button>
+                <Button sx={{ fontSize: "10px" }} fullWidth variant="outlined">
+                  es·pa·ño·les
+                </Button>
+              </ListItemButton>
+            </AccordionDetails>
+          </Accordion>
+        </ListItem>
       </List>
     </Box>
   );

@@ -13,6 +13,8 @@ import HeaderDrawer from "../../Items/HeaderDrawer";
 
 export default function Header() {
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorLanEl, setAnchorLanEl] = React.useState(null);
+  const Lanopen = Boolean(anchorLanEl);
   const open = Boolean(anchorEl);
   const handleClose = () => {
     setAnchorEl(null);
@@ -172,19 +174,58 @@ export default function Header() {
                 )}
               </Menu>
             </div>
-
-            <Button
-              sx={{
-                color: "black",
-                display: ["none", "none", "block"],
-                "&:hover": {
-                  color: "blue",
-                },
-              }}
-            >
-              <LanguageIcon sx={{ mr: 2 }} />
-              English
-            </Button>
+            <div>
+              <Button
+                id="demo-positioned-button"
+                aria-controls={Lanopen ? "demo-positioned-menu" : undefined}
+                aria-haspopup="true"
+                aria-expanded={Lanopen ? "true" : undefined}
+                onClick={(event) => setAnchorLanEl(event.currentTarget)}
+                sx={{
+                  color: "black",
+                  display: ["none", "none", "block"],
+                  "&:hover": {
+                    color: "blue",
+                  },
+                }}
+              >
+                <LanguageIcon sx={{ mr: 2 }} />
+                English
+              </Button>
+              <Menu
+                id="demo-positioned-menu"
+                aria-labelledby="demo-positioned-button"
+                anchorEl={anchorLanEl}
+                open={Lanopen}
+                onClose={() => setAnchorLanEl(null)}
+                anchorOrigin={{
+                  vertical: "top",
+                  horizontal: "left",
+                }}
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "left",
+                }}
+              >
+                <MenuItem onClick={() => setAnchorLanEl(null)}>
+                  <Button
+                    fullWidth
+                    sx={{ mr: 2, fontSize: "10px" }}
+                    variant="contained"
+                    color="success"
+                  >
+                    English
+                  </Button>
+                  <Button
+                    sx={{ fontSize: "10px" }}
+                    fullWidth
+                    variant="outlined"
+                  >
+                    es·pa·ño·les
+                  </Button>
+                </MenuItem>
+              </Menu>
+            </div>
           </Box>
           <img className="w-[150px] lg:w-[200px] mx-auto" src={logo} alt="" />
           <Box sx={{ display: ["none", "none", "block"] }}>

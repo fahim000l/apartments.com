@@ -6,6 +6,8 @@ import RentalListing from "../Components/Home/RentalListing";
 import HomeOwnership from "../Components/Home/HomeOwnership";
 import ManageProperty from "../Components/Home/ManageProperty";
 import PropertyManager from "../Components/Home/PropertyManager";
+import Footera from "../Components/Common/Footera";
+import Footerb from "../Components/Common/Footerb";
 
 const Home = () => {
   const scrollRf = useRef(null);
@@ -58,6 +60,16 @@ const Home = () => {
           mx: "auto",
         }}
       />
+      <Footera></Footera>
+      <Divider
+        sx={{
+          my: [5, 5, 10],
+          border: "1px solid gray",
+          width: "75%",
+          mx: "auto",
+        }}
+      />
+      <Footerb></Footerb>
     </div>
   );
 };
